@@ -56,6 +56,32 @@ npm run dev
 * Railway track anomaly detection
 * Mobile application
 
+## Screenshots
+
+### Dashboard
+
+![Dashboard](docs/screenshots/dashboard.png)
+
+### AI Detection
+
+![AI Detection](docs/screenshots/ai-detection.png)
+
+### Analytics
+
+![Analytics](docs/screenshots/analytics.png)
+
+### Defect Map
+
+![Defect Map](docs/screenshots/Defect-Map.png)
+
+### Maintenance Center
+
+![Maintenance Center](docs/screenshots/Maintenance-Center.png)
+
+### Reports
+
+![Reports](docs/screenshots/Reports.png)
+
 ## Team
 
 RailGuardAI Development Team
