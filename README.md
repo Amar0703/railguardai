@@ -76,7 +76,7 @@ npm run dev
 
 ### Maintenance Center
 
-![Maintenance Center](docs/screenshots/Maintenance- Center.png)
+![Maintenance Center](docs/screenshots/MaintenanceCenter.png)
 
 ### Reports
 
