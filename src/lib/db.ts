@@ -1,5 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
-import { createServerFn } from '@tanstack/start';
+import { createServerFn } from "@tanstack/react-start";
 import { GoogleGenAI, Type } from '@google/genai';
 
 export type Severity = "Critical" | "High" | "Medium" | "Low";
@@ -89,7 +89,9 @@ interface GeminiDefectResult {
  * Secure Server Function to invoke the Gemini 2.5 Flash API.
  * This runs isolated on the backend server environment protecting your API key.
  */
-const runGeminiVisionAnalysis = createServerFn('POST', async (imageUrl: string) => {
+const runGeminiVisionAnalysis = createServerFn({ method: "POST" })
+  .inputValidator((imageUrl: string) => imageUrl)
+  .handler(async ({ data: imageUrl }) => {
   try {
     if (!process.env.GEMINI_API_KEY) {
       throw new Error("Missing GEMINI_API_KEY inside the system environment configs.");
@@ -153,7 +155,7 @@ const runGeminiVisionAnalysis = createServerFn('POST', async (imageUrl: string) 
       }
     });
 
-    const resultsText = response.text() || '[]';
+    const resultsText = response.text || '[]';
     const parsedData: GeminiDefectResult[] = JSON.parse(resultsText);
     return { success: true, data: parsedData };
 
@@ -188,7 +190,7 @@ export async function uploadInspection(file: File): Promise<{
   const imageUrl = signed.signedUrl;
 
   // --- SWAPPED: Calling the live Gemini AI model instead of mockDetect() ---
-  const aiPayload = await runGeminiVisionAnalysis(imageUrl);
+  const aiPayload = await runGeminiVisionAnalysis({ data: imageUrl });
   
   // Map back data into your application pipeline layout
   const detections = (aiPayload.success ? aiPayload.data : []).map(defect => ({
