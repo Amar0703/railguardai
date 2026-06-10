@@ -84,7 +84,7 @@ npm run dev
 
 ## Team
 
-RailGuardAI Development Team
+Hack Horizon
 
 ## License
 
