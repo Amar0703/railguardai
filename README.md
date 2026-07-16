@@ -55,6 +55,7 @@ npm run dev
 * Predictive maintenance
 * Railway track anomaly detection
 * Mobile application
+* IOS support
 
 ## Screenshots
 
