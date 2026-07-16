@@ -45,7 +45,14 @@ README.md       Project documentation
 ## Installation
 
 ```bash
+# Install dependencies
 npm install
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your Supabase credentials
+
+# Start the dev server
 npm run dev
 ```
 
@@ -82,6 +89,10 @@ npm run dev
 ### Reports
 
 ![Reports](docs/screenshots/Reports.png)
+
+## Contributing
+
+We welcome contributions! Please read our [Contributing Guide](CONTRIBUTING.md) for details on setup, workflow, and conventions.
 
 ## Team
 
